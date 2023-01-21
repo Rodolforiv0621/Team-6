@@ -26,7 +26,11 @@ function AddEyedropForm() {
                 <IonIcon icon={arrowBackOutline} size="large" />
               </IonCol>
               <IonCol size="8">
-                <IonTitle>Add Eyedrop</IonTitle>
+                {savedMedicine ? (
+                  <IonTitle>Add Eyedrop</IonTitle>
+                ) : (
+                  <IonTitle>manual Entry</IonTitle>
+                )}
               </IonCol>
               <IonCol size="2"></IonCol>
             </IonRow>
@@ -34,7 +38,7 @@ function AddEyedropForm() {
         </IonToolbar>
       </IonHeader>
       <IonContent class="ion-padding">
-        {!savedMedicine ? (
+        {savedMedicine ? (
           <IonItem>
             <IonLabel>
               <h1>H1 Heading</h1>
