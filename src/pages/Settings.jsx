@@ -1,18 +1,16 @@
 import {
   IonCol,
-  IonContent,
   IonGrid,
   IonHeader,
   IonIcon,
   IonPage,
   IonRow,
-  IonSearchbar,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { arrowBackOutline, add } from "ionicons/icons";
+import { arrowBackOutline } from "ionicons/icons";
 
-function AddEyedrop() {
+function Settings() {
   return (
     <IonPage>
       <IonHeader>
@@ -23,20 +21,14 @@ function AddEyedrop() {
                 <IonIcon icon={arrowBackOutline} size="large" />
               </IonCol>
               <IonCol size="8">
-                <IonTitle>Add Eyedrop</IonTitle>
+                <IonTitle>Settings</IonTitle>
               </IonCol>
-              <IonCol size="2">
-                <IonIcon icon={add} size="large" />
-              </IonCol>
+              <IonCol size="2"></IonCol>
             </IonRow>
           </IonGrid>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonSearchbar></IonSearchbar>
-      </IonContent>
     </IonPage>
   );
 }
-
-export default AddEyedrop;
+export default Settings;
