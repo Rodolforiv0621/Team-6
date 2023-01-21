@@ -50,8 +50,9 @@ function AddEyedropForm() {
       <IonContent class="ion-padding">
         {savedMedicine ? (
         <IonItem>
-          <IonLabel>Eye Drop Name</IonLabel>
+          <IonLabel><h1>Eye Drop Name</h1>
           <IonInput placeholder="Enter Eyedrop name"></IonInput>
+          </IonLabel>
         </IonItem>
         ) : (
           <IonItem>
@@ -98,7 +99,7 @@ function AddEyedropForm() {
             <IonLabel>
               <h1>Start Date</h1>
               <p>            
-                <IonDatetime presentation="date-time" preferWheel={true}></IonDatetime>
+                <IonDatetime presentation="date" preferWheel={true}></IonDatetime>
               </p>
             </IonLabel>
           </IonItem>
@@ -107,8 +108,26 @@ function AddEyedropForm() {
           <IonItem>
             <IonLabel>
               <h1>Number of days</h1>
-            
               <ion-input placeholder="Number of days"></ion-input>
+            </IonLabel>
+          </IonItem>
+        )}
+        {(
+          <IonItem>
+            <IonLabel>
+              <h1>How often?</h1>
+              <ion-input placeholder="Times per day"></ion-input>
+            </IonLabel>
+          </IonItem>
+        )}
+        {
+        (
+          <IonItem>
+            <IonLabel>
+              <h1>Alarm</h1>
+              <p>            
+                <IonDatetime presentation="time" preferWheel={true}></IonDatetime>
+              </p>
             </IonLabel>
           </IonItem>
         )}
