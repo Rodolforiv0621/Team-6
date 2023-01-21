@@ -25,7 +25,7 @@ function Home() {
           <IonGrid>
             <IonRow>
               <IonCol size="2">
-                <IonButton routerLink="/settings"><IonIcon icon={cog}  /></IonButton>
+                <IonButton routerLink="/settings" color="medium"><IonIcon icon={cog}  /></IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonSegment value="default">
@@ -38,7 +38,7 @@ function Home() {
                 </IonSegment>
               </IonCol>
               <IonCol size="2">
-                <IonButton routerLink="/AddEyedrop">
+                <IonButton routerLink="/AddEyedrop" color="medium">
                   <IonIcon icon={add}  /> 
                   </IonButton>
               </IonCol>
