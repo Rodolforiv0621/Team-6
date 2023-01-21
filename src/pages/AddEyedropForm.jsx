@@ -11,18 +11,46 @@ import {
   IonTitle,
   IonToolbar,
   IonButton,
+  IonSegment,
+  IonSegmentButton,
+  IonDatetime,
 } from "@ionic/react";
-import { medkit, arrowBackOutline } from "ionicons/icons";
+import { eyedropOutline, arrowBackOutline } from "ionicons/icons";
 import { useEffect, useState } from "react";
 
 function AddEyedropForm({ match }) {
+  const date = new Date();
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const [savedMedicine, setSavedMedicine] = useState(true);
+  const [medicationEye, setMedicationEye] = useState("both");
+  const [startDate, setStartDate] = useState(
+    `${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`
+  );
 
   useEffect(() => {
     if (match.params.id === "manual") {
       setSavedMedicine(false);
+    } else {
+      setSavedMedicine(true);
     }
   });
+  // useEffect(() => {
+  //   console.log(startDate);
+  // }, [startDate]);
+
   return (
     <IonPage>
       <IonHeader>
@@ -53,17 +81,78 @@ function AddEyedropForm({ match }) {
               <h1>{match.params.id}</h1>
               <p>Paragraph</p>
             </IonLabel>
-            <IonIcon icon={medkit} slot="start"></IonIcon>
+            <IonIcon icon={eyedropOutline} slot="start" size="large"></IonIcon>
           </IonItem>
         ) : (
           <IonItem>
             <IonLabel>
               <ion-input placeholder="Eyedrop Name"></ion-input>
             </IonLabel>
-            <IonIcon icon={medkit} slot="start"></IonIcon>
+            <IonIcon icon={eyedropOutline} slot="start"></IonIcon>
           </IonItem>
         )}
-        {/* add the form input here */}
+        <IonItem>
+          <IonLabel>
+            <h1>Which Eye?</h1>
+            <IonToolbar>
+              <IonGrid>
+                <IonRow>
+                  <IonCol size="12">
+                    <IonSegment value="default">
+                      <IonSegmentButton
+                        onClick={() => setMedicationEye("Left")}
+                        value="left"
+                      >
+                        <IonLabel>Left</IonLabel>
+                      </IonSegmentButton>
+                      <IonSegmentButton
+                        value="default"
+                        onClick={() => setMedicationEye("Both")}
+                      >
+                        <IonLabel>Both</IonLabel>
+                      </IonSegmentButton>
+                      <IonSegmentButton
+                        value="right"
+                        onClick={() => setMedicationEye("Right")}
+                      >
+                        <IonLabel>Right</IonLabel>
+                      </IonSegmentButton>
+                    </IonSegment>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+            </IonToolbar>
+          </IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel>
+            <h1>Start Date</h1>
+            <IonDatetime presentation="date" preferWheel={true}></IonDatetime>
+          </IonLabel>
+        </IonItem>
+        <IonItem>
+          <IonLabel>
+            <h1>Number of days</h1>
+            <ion-input placeholder="Number of days"></ion-input>
+          </IonLabel>
+        </IonItem>
+
+        <IonItem>
+          <IonLabel>
+            <h1>How often?</h1>
+            <ion-input placeholder="Times per day"></ion-input>
+          </IonLabel>
+        </IonItem>
+
+        <IonItem>
+          <IonLabel>
+            <h1>Alarm</h1>
+            <p>
+              <IonDatetime presentation="time" preferWheel={true}></IonDatetime>
+            </p>
+          </IonLabel>
+        </IonItem>
+        <IonButton expand="block">Submit</IonButton>
       </IonContent>
     </IonPage>
   );
