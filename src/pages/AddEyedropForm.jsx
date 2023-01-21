@@ -10,6 +10,7 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
+  IonButton
 } from "@ionic/react";
 import { medkit, arrowBackOutline } from "ionicons/icons";
 import { useState } from "react";
@@ -23,7 +24,7 @@ function AddEyedropForm() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonIcon icon={arrowBackOutline} size="large" />
+                <IonButton href="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
               </IonCol>
               <IonCol size="8">
                 {savedMedicine ? (

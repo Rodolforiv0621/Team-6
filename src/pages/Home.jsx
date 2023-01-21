@@ -10,10 +10,13 @@ import {
   IonSegment,
   IonSegmentButton,
   IonToolbar,
+  IonButton,
 } from "@ionic/react";
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
-
+import { useHistory } from "react-router-dom";
+//import { IonButton } from "@ionic/core/components";
+//const history = useHistory();
 function Home() {
   return (
     <IonPage>
@@ -22,7 +25,7 @@ function Home() {
           <IonGrid>
             <IonRow>
               <IonCol size="2">
-                <IonIcon icon={cog} size="large" />
+                <IonButton href="/settings"><IonIcon icon={cog} size="large" /></IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonSegment value="default">
@@ -35,7 +38,9 @@ function Home() {
                 </IonSegment>
               </IonCol>
               <IonCol size="2">
-                <IonIcon icon={add} size="large" />
+                <IonButton href="/AddEyedrop">
+                  <IonIcon icon={add} size="large" /> 
+                  </IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>

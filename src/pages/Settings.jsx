@@ -1,3 +1,4 @@
+
 import {
   IonCol,
   IonGrid,
@@ -7,6 +8,7 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
+  IonButton
 } from "@ionic/react";
 import { arrowBackOutline } from "ionicons/icons";
 
@@ -18,7 +20,7 @@ function Settings() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonIcon icon={arrowBackOutline} size="large" />
+                <IonButton href="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonTitle>Settings</IonTitle>

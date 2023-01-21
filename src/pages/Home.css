@@ -1,0 +1,7 @@
+ion-button {
+  --background: #656565;
+  --background-hover: #9cbfe0;
+  --background-activated: #9cbfe0;
+  --background-focused: #9cbfe0;
+  /* --color: rgb(230, 38, 38); */
+}
