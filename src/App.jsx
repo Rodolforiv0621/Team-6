@@ -24,7 +24,8 @@ import './theme/variables.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
+function App() {
+  return(
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
@@ -37,6 +38,8 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
-);
+  );
+}
+
 
 export default App;
