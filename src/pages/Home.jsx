@@ -23,9 +23,11 @@ function Home() {
       <IonHeader>
         <IonToolbar>
           <IonGrid>
-            <IonRow>
+            <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
               <IonCol size="2">
-                <IonButton routerLink="/settings" color="medium"><IonIcon icon={cog}  /></IonButton>
+                <IonButton routerLink="/settings" color="medium">
+                  <IonIcon icon={cog} />
+                </IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonSegment value="default">
@@ -39,8 +41,8 @@ function Home() {
               </IonCol>
               <IonCol size="2">
                 <IonButton routerLink="/AddEyedrop" color="medium">
-                  <IonIcon icon={add}  /> 
-                  </IonButton>
+                  <IonIcon icon={add} />
+                </IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>

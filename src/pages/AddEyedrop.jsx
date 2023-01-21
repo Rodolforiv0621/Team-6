@@ -1,4 +1,3 @@
-
 import {
   IonCol,
   IonContent,
@@ -21,16 +20,20 @@ function AddEyedrop({ eyedrop }) {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonGrid class="ion-text-center ion-justify-content-center">
-            <IonRow>
+          <IonGrid>
+            <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
               <IonCol size="2">
-                <IonButton routerLink="/home" color="medium"><IonIcon icon={arrowBackOutline} /></IonButton>
+                <IonButton routerLink="/home" color="medium">
+                  <IonIcon icon={arrowBackOutline} />
+                </IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonTitle>Add Eyedrop</IonTitle>
               </IonCol>
               <IonCol size="2">
-                <IonButton routerLink="/AddEyedropForm" color="medium"><IonIcon icon={add} /></IonButton>
+                <IonButton routerLink="/addeyedrop/manual" color="medium">
+                  <IonIcon icon={add} />
+                </IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>
@@ -38,10 +41,15 @@ function AddEyedrop({ eyedrop }) {
       </IonHeader>
       <IonContent class="ion-padding">
         <IonSearchbar></IonSearchbar>
-        {medication.map(item => (<IonButton expand="block" color="medium">{`${item}`}</IonButton>))}
+        {medication.map((item) => (
+          <IonButton
+            key={item}
+            expand="block"
+            color="medium"
+          >{`${item}`}</IonButton>
+        ))}
       </IonContent>
     </IonPage>
-    
   );
 }
 

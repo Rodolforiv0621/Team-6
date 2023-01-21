@@ -10,21 +10,29 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
-  IonButton
+  IonButton,
 } from "@ionic/react";
 import { medkit, arrowBackOutline } from "ionicons/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function AddEyedropForm({match}) {
+function AddEyedropForm({ match }) {
   const [savedMedicine, setSavedMedicine] = useState(true);
+
+  useEffect(() => {
+    if (match.params.id === "manual") {
+      setSavedMedicine(false);
+    }
+  });
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonGrid class="ion-text-center ion-justify-content-center">
-            <IonRow>
+          <IonGrid>
+            <IonRow class="ion-text-start ion-justify-content-center ion-align-items-center">
               <IonCol size="2">
-                <IonButton routerLink="/home" color="medium"><IonIcon icon={arrowBackOutline}  /></IonButton>
+                <IonButton routerLink="/addeyedrop" color="medium">
+                  <IonIcon icon={arrowBackOutline} />
+                </IonButton>
               </IonCol>
               <IonCol size="8">
                 {savedMedicine ? (
