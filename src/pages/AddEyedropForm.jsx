@@ -1,31 +1,41 @@
 import {
+  IonButtons,
+  IonButton,
   IonCol,
   IonContent,
+  IonDatetime,
   IonGrid,
   IonHeader,
   IonIcon,
+  IonInput,
   IonItem,
   IonLabel,
   IonPage,
+  useIonPicker,
   IonRow,
+  IonSegment,
+  IonSegmentButton,
   IonTitle,
   IonToolbar,
+  
 } from "@ionic/react";
 import { medkit, arrowBackOutline } from "ionicons/icons";
 import { useState } from "react";
 
+
 function AddEyedropForm() {
   const [savedMedicine, setSavedMedicine] = useState(true);
+  
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
-              <IonCol size="2">
+              <IonCol size="1">
                 <IonIcon icon={arrowBackOutline} size="large" />
               </IonCol>
-              <IonCol size="8">
+              <IonCol size="10">
                 {savedMedicine ? (
                   <IonTitle>Add Eyedrop</IonTitle>
                 ) : (
@@ -39,13 +49,10 @@ function AddEyedropForm() {
       </IonHeader>
       <IonContent class="ion-padding">
         {savedMedicine ? (
-          <IonItem>
-            <IonLabel>
-              <h1>H1 Heading</h1>
-              <p>Paragraph</p>
-            </IonLabel>
-            <IonIcon icon={medkit} slot="start"></IonIcon>
-          </IonItem>
+        <IonItem>
+          <IonLabel>Eye Drop Name</IonLabel>
+          <IonInput placeholder="Enter Eyedrop name"></IonInput>
+        </IonItem>
         ) : (
           <IonItem>
             <IonLabel>
@@ -54,7 +61,57 @@ function AddEyedropForm() {
             <IonIcon icon={medkit} slot="start"></IonIcon>
           </IonItem>
         )}
-        {/* add the form input here */}
+        {/* add the form input here */        
+        (
+          <IonItem>
+            <IonLabel>
+              <h1>which eye?</h1>
+              <p>            
+              <IonToolbar>
+          <IonGrid>
+            <IonRow>
+              
+              <IonCol size="12">
+                <IonSegment value="default">
+                  <IonSegmentButton value="default">
+                    <IonLabel>Left</IonLabel>
+                  </IonSegmentButton>
+                  <IonSegmentButton value="default">
+                    <IonLabel>Both</IonLabel>
+                  </IonSegmentButton>
+                  <IonSegmentButton value="default">
+                    <IonLabel>right</IonLabel>
+                  </IonSegmentButton>
+                </IonSegment>
+              </IonCol>
+              
+            </IonRow>
+          </IonGrid>
+        </IonToolbar>              </p>
+            </IonLabel>
+          </IonItem>
+        )} 
+        {/* add the form input here */  
+              
+        (
+          <IonItem>
+            <IonLabel>
+              <h1>Start Date</h1>
+              <p>            
+                <IonDatetime presentation="date-time" preferWheel={true}></IonDatetime>
+              </p>
+            </IonLabel>
+          </IonItem>
+        )} 
+        {(
+          <IonItem>
+            <IonLabel>
+              <h1>Number of days</h1>
+            
+              <ion-input placeholder="Number of days"></ion-input>
+            </IonLabel>
+          </IonItem>
+        )}
       </IonContent>
     </IonPage>
   );
