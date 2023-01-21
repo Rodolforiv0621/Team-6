@@ -1,5 +1,4 @@
 import {
-  IonButton,
   IonCol,
   IonContent,
   IonGrid,
@@ -10,10 +9,8 @@ import {
   IonRow,
   IonSegment,
   IonSegmentButton,
-  IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import ExploreContainer from "../components/ExploreContainer";
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
 
