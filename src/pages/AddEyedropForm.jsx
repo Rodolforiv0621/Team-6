@@ -24,7 +24,7 @@ function AddEyedropForm() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonButton href="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
+                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
               </IonCol>
               <IonCol size="8">
                 {savedMedicine ? (

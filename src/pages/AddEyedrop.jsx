@@ -13,6 +13,7 @@ import {
   IonButton,
 } from "@ionic/react";
 import { arrowBackOutline, add } from "ionicons/icons";
+import "./Home.css";
 
 function AddEyedrop() {
   return (
@@ -22,13 +23,13 @@ function AddEyedrop() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonButton href="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
+                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonTitle>Add Eyedrop</IonTitle>
               </IonCol>
               <IonCol size="2">
-                <IonButton href="/AddEyedropForm"><IonIcon icon={add} size="large" /></IonButton>
+                <IonButton routerLink="/AddEyedropForm"><IonIcon icon={add} size="large" /></IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>

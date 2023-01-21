@@ -33,8 +33,9 @@ function App() {
       <IonReactRouter>
         <IonRouterOutlet>
           <Route exact path="/home" component={Home} />
-          <Route path="/addeyedrop" component={AddEyedrop} />
-          <Route path="/addeyedropform" component={AddEyedropForm}></Route>
+          <Route path="/addeyedrop" component={AddEyedrop}>
+            <Route path="/addeyedrop/:name" component={AddEyedropForm}></Route>
+          </Route>
           <Route path="/settings" component={Settings} />
           <Route exact path="/">
             <Redirect to="/home" />
