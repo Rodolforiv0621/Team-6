@@ -73,13 +73,13 @@ function AddEyedropForm() {
               
               <IonCol size="12">
                 <IonSegment value="default">
-                  <IonSegmentButton value="default">
+                  <IonSegmentButton value="left">
                     <IonLabel>Left</IonLabel>
                   </IonSegmentButton>
                   <IonSegmentButton value="default">
                     <IonLabel>Both</IonLabel>
                   </IonSegmentButton>
-                  <IonSegmentButton value="default">
+                  <IonSegmentButton value="right">
                     <IonLabel>right</IonLabel>
                   </IonSegmentButton>
                 </IonSegment>
