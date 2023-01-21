@@ -29,7 +29,7 @@ function AddEyedropForm() {
                 {savedMedicine ? (
                   <IonTitle>Add Eyedrop</IonTitle>
                 ) : (
-                  <IonTitle>manual Entry</IonTitle>
+                  <IonTitle>Manual Entry</IonTitle>
                 )}
               </IonCol>
               <IonCol size="2"></IonCol>
