@@ -10,8 +10,11 @@ import {
   IonTitle,
   IonToolbar,
   IonButton,
+  IonList,
+  IonItem,
+  IonLabel,
 } from "@ionic/react";
-import { arrowBackOutline, add } from "ionicons/icons";
+import { arrowBackOutline, add, eyedropOutline } from "ionicons/icons";
 import "./Home.css";
 import medication from "../data/medication";
 
@@ -41,13 +44,14 @@ function AddEyedrop({ eyedrop }) {
       </IonHeader>
       <IonContent class="ion-padding">
         <IonSearchbar></IonSearchbar>
-        {medication.map((item) => (
-          <IonButton
-            key={item}
-            expand="block"
-            color="medium"
-          >{`${item}`}</IonButton>
-        ))}
+        <IonList lines="full">
+          {medication.map((item) => (
+            <IonItem key={item} routerLink={`/addeyedrop/${item}`}>
+              <IonLabel>{`${item}`}</IonLabel>
+              <IonIcon icon={eyedropOutline} slot="start"></IonIcon>
+            </IonItem>
+          ))}
+        </IonList>
       </IonContent>
     </IonPage>
   );
