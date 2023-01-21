@@ -15,7 +15,7 @@ import {
 import { arrowBackOutline, add } from "ionicons/icons";
 import "./Home.css";
 
-function AddEyedrop() {
+function AddEyedrop({ eyedrop }) {
   return (
     <IonPage>
       <IonHeader>
@@ -23,13 +23,13 @@ function AddEyedrop() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
+                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline} /></IonButton>
               </IonCol>
               <IonCol size="8">
                 <IonTitle>Add Eyedrop</IonTitle>
               </IonCol>
               <IonCol size="2">
-                <IonButton routerLink="/AddEyedropForm"><IonIcon icon={add} size="large" /></IonButton>
+                <IonButton routerLink="/AddEyedropForm"><IonIcon icon={add} /></IonButton>
               </IonCol>
             </IonRow>
           </IonGrid>
@@ -39,6 +39,7 @@ function AddEyedrop() {
         <IonSearchbar></IonSearchbar>
       </IonContent>
     </IonPage>
+    
   );
 }
 

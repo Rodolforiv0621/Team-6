@@ -15,7 +15,7 @@ import {
 import { medkit, arrowBackOutline } from "ionicons/icons";
 import { useState } from "react";
 
-function AddEyedropForm() {
+function AddEyedropForm({match}) {
   const [savedMedicine, setSavedMedicine] = useState(true);
   return (
     <IonPage>
@@ -24,7 +24,7 @@ function AddEyedropForm() {
           <IonGrid class="ion-text-center ion-justify-content-center">
             <IonRow>
               <IonCol size="2">
-                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline} size="large" /></IonButton>
+                <IonButton routerLink="/home"><IonIcon icon={arrowBackOutline}  /></IonButton>
               </IonCol>
               <IonCol size="8">
                 {savedMedicine ? (
@@ -42,7 +42,7 @@ function AddEyedropForm() {
         {savedMedicine ? (
           <IonItem>
             <IonLabel>
-              <h1>H1 Heading</h1>
+              <h1>{match.params.id}</h1>
               <p>Paragraph</p>
             </IonLabel>
             <IonIcon icon={medkit} slot="start"></IonIcon>
