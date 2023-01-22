@@ -1,3 +1,6 @@
+//TODO use alarm/alert component
+//Badge icon if possible
+//Maybe themes for eye sensitivty under settings
 import {
   IonCol,
   IonContent,

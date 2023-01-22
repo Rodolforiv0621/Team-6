@@ -1,4 +1,5 @@
 import {
+  IonAlert,
   IonCheckbox,
   IonCol,
   IonContent,
@@ -22,15 +23,41 @@ import {
   IonTitle,
   IonItemGroup,
   IonItemDivider,
+  useIonAlert
 } from "@ionic/react";
 import { Virtuoso } from 'react-virtuoso';
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+
+
+/**
+ * calculates the current date + hour and compares to 
+ * alarm date + hour
+ * @returns currentDate and AlarmDate
+ */
+function GetAlarm(){
+  const [today, setDate] = useState(new Date())
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date())
+    }, 60 * 100)
+    return () =>{
+      clearInterval(timer)
+    }
+  }, [])
+  const hour = today.getHours();
+  //change testHour for presentation purposes
+  const testHour = 8
+  return [hour,testHour]
+}
 
 function Home() {
   const [sch, setSch] = useState(true)
+  const [dropAlert, showAlert] = useState(true)
+  const [currentDate, alarmDate] = GetAlarm()
+
   return (
     <IonPage>
       <IonHeader>
@@ -60,10 +87,21 @@ function Home() {
             </IonRow>
           </IonGrid>
         </IonToolbar>
-      </IonHeader>
-
+      </IonHeader>        
       {sch ? (
       <IonContent class="ion-padding">
+      <div>
+      { currentDate === alarmDate &&
+        <IonAlert 
+        isOpen={dropAlert}
+        onDidDismiss={() => showAlert(false)}
+        header="Alert"
+        subHeader="Important message"
+        message="Take your medication"
+        buttons={['OK']}
+        />
+      }
+      </div>
         <Virtuoso
           style={{height: '100%'}}
           totalCount={10}
