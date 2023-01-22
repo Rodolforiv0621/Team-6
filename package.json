@@ -20,11 +20,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-<<<<<<< HEAD
     "react-scripts": "^5.0.0",
     "react-virtuoso": "^4.0.3",
-=======
->>>>>>> 49041d8a81d23f999d38518fb1824237020ba84c
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
