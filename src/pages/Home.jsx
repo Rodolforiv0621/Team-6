@@ -32,8 +32,7 @@ import "./Home.css";
 import { add, cog } from "ionicons/icons";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { add, cog, refresh, eyedropOutline } from "ionicons/icons";
-import { useEffect, useState } from "react";
+import {  refresh, eyedropOutline } from "ionicons/icons";
 
 
 /**
@@ -114,7 +113,7 @@ function Home() {
           </IonGrid>
         </IonToolbar>
       </IonHeader>        
-      {sch ? (
+      {/* {sch ? (
       <IonContent class="ion-padding">
       <div>
       { currentDate === alarmDate &&
@@ -141,8 +140,8 @@ function Home() {
                       <IonDatetime id="datetime"></IonDatetime>
                     </IonModal>
                   </IonItemDivider>
-                </IonItemGroup>
-      </IonHeader>
+                </IonItemGroup> */}
+              
 
       <IonButton expand="block" onClick={() => setIsRefresh(true)}>
         <IonIcon icon={refresh} />

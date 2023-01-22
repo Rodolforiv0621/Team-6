@@ -21,10 +21,7 @@
     "react-native-alarm-clock": "^2.0.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-<<<<<<< HEAD
     "react-scripts": "^5.0.0",
-=======
->>>>>>> 7e5153186d51d3e7d554e25226bca2d76fd83766
     "react-virtuoso": "^4.0.3",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",

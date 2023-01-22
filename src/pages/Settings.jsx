@@ -32,17 +32,33 @@ import { useState } from "react";
 
 function Settings() {
 const [passcode, setPasscode] = useState(0);
-// const togglePasscodeCheck = () =>{
+const [isChecked, setIsChecked] = useState(false);
+const togglePasscodeCheck = () =>{
   
-//   setPasscodeIsChecked(!passcodeIsChecked);
-//   setIsOpen(false);
-//   console.log(passcodeIsChecked);
-// }
+  setIsChecked(!isChecked);
+  localStorage.setItem("isAuthed", JSON.stringify(isChecked));
+  console.log("coming from toggle: " +JSON.parse(localStorage.getItem("isAuthed")));
+  //return passcodeIsChecked;
+}
 const changePasscode = (e) =>{
-  console.log(e.target.value)
-  setPasscode(e.target.value);
+  //console.log(e.target.value)
+  
+  //localStorage.setItem("passcode", JSON.stringify(passcode));
+  if(isChecked){
+    setPasscode(e.target.value);
+    localStorage.setItem("passcode", JSON.stringify(passcode));
+    //console.log(JSON.parse(localStorage.getItem("passcode")));
+  }else{
+    setPasscode(-1);
+    localStorage.setItem("passcode", JSON.stringify(passcode));
+    //console.log(JSON.parse(localStorage.getItem("passcode")));
+  }
 }
 const [isOpen, setIsOpen] = useState(false);
+function toggle() {
+  let temp = isOpen
+  setIsOpen(!temp)
+}
 
   return (
     
@@ -95,7 +111,10 @@ const [isOpen, setIsOpen] = useState(false);
         <div style={{ height: "5vh" }}></div>
         <IonItem>
             <IonLabel>Passcode</IonLabel>
-            <IonToggle slot="end"   onClick={() => setIsOpen(true) }></IonToggle>
+            <IonToggle slot="end"   onClick={() => {
+              toggle()
+              togglePasscodeCheck();
+            } }></IonToggle>
             <IonModal isOpen={isOpen}>
             <IonHeader>
             <IonToolbar>

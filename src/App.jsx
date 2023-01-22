@@ -25,20 +25,25 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import legal from "./pages/legal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PassScreen from "./pages/PassScreen";
 
 setupIonicReact();
 //const {passcodeIsChecked} = Settings()
 function App() {
   const [myDropData, setMyDropData] = useState([]);
-
+  const [isAuthed, setIsAuthed] = useState(-1);
   function addDropData(dropData) {
     let temp = [...myDropData];
     temp.push(dropData);
     setMyDropData(temp);
   }
-
+  useEffect(() => {
+    const passcode = localStorage.getItem("passcode");
+    const authed = localStorage.getItem("isAuthed");
+    //console.log("From app.jsx: " + JSON.parse(passcode));
+    //console.log(" authed From app.jsx: " + JSON.parse(authed));
+  });
   return (
     <IonApp>
       <IonReactRouter>
@@ -59,9 +64,13 @@ function App() {
           ></Route>
           <Route path="/settings" component={Settings} />
           <Route path="/legal" component={legal} />
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return JSON.parse(localStorage.getItem("isAuthed")) ? <Home />  : <PassScreen /> ;
+            }}
+          />
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
