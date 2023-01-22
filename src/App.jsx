@@ -22,8 +22,10 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
+
 /* Theme variables */
 import "./theme/variables.css";
+import legal from "./pages/legal";
 
 setupIonicReact();
 
@@ -36,6 +38,7 @@ function App() {
           <Route path="/addeyedrop" component={AddEyedrop}></Route>
           <Route path="/addeyedrop/:id" component={AddEyedropForm}></Route>
           <Route path="/settings" component={Settings} />
+          <Route path="/legal" component={legal}/>
           <Route exact path="/">
             <Redirect to="/home" />
           </Route>
