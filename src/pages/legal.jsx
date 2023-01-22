@@ -8,16 +8,10 @@ import {
     IonTitle,
     IonToolbar,
     IonButton,
-    IonItem,
-    IonLabel,
-    IonList,
     IonContent,
-    IonSelectOption,
-    IonSelect,
-    IonInput,
-    IonNote,
+    
   } from "@ionic/react";
-  import { arrowBackOutline, linkSharp, mail, documentTextOutline } from "ionicons/icons";
+  import { arrowBackOutline } from "ionicons/icons";
   
   function legal() {
     return (

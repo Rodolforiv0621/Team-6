@@ -14,7 +14,6 @@ import {
 } from "@ionic/react";
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
-import { useHistory } from "react-router-dom";
 
 function Home() {
   return (

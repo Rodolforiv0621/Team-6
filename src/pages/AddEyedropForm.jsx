@@ -98,10 +98,11 @@ function AddEyedropForm({ match }) {
               <IonGrid>
                 <IonRow>
                   <IonCol size="12">
-                    <IonSegment value="default">
+                    <IonSegment >
                       <IonSegmentButton
+                       value="left"
                         onClick={() => setMedicationEye("Left")}
-                        value="left"
+                        
                       >
                         <IonLabel>Left</IonLabel>
                       </IonSegmentButton>
@@ -133,14 +134,14 @@ function AddEyedropForm({ match }) {
         <IonItem>
           <IonLabel>
             <h1>Number of days</h1>
-            <ion-input placeholder="Number of days"></ion-input>
+            <ion-input placeholder="Number of days" type="number"></ion-input>
           </IonLabel>
         </IonItem>
 
         <IonItem>
           <IonLabel>
             <h1>How often?</h1>
-            <ion-input placeholder="Times per day"></ion-input>
+            <ion-input placeholder="Times per day" type = "number"></ion-input>
           </IonLabel>
         </IonItem>
 

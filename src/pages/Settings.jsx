@@ -16,7 +16,7 @@ import {
   IonSelectOption,
   IonSelect,
   IonInput,
-  IonNote,
+  
 } from "@ionic/react";
 import { arrowBackOutline, linkSharp, mail, documentTextOutline } from "ionicons/icons";
 
@@ -57,13 +57,13 @@ function Settings() {
         <IonItem class = "ionlabel padding">
           <IonLabel  slot="start">Snooze Duration: </IonLabel>
           <IonInput placeholder="Enter minutes" type="number"></IonInput><IonLabel slot="end">min</IonLabel>
-          <IonNote slot="error">Invalid integer </IonNote>
+          
         </IonItem>
         
         <IonItem class = "ionlabel padding">
           <IonLabel>Gap Between Drops:</IonLabel>
           <IonInput placeholder=" Enter minutes" type="number"></IonInput><IonLabel slot="end">min</IonLabel>
-          <IonNote slot="error">Invalid integer</IonNote>
+          
         </IonItem>
         </IonList>
         

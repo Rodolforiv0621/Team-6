@@ -36,7 +36,7 @@ function App() {
         <IonRouterOutlet>
           <Route exact path="/home" component={Home} />
           <Route path="/addeyedrop" component={AddEyedrop}></Route>
-          <Route path="/addeyedrop/:id" component={AddEyedropForm}></Route>
+          <Route exact path="/addeyedrop/:id" component={AddEyedropForm}></Route>
           <Route path="/settings" component={Settings} />
           <Route path="/legal" component={legal}/>
           <Route exact path="/">
