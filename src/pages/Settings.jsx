@@ -16,14 +16,39 @@ import {
   IonSelectOption,
   IonSelect,
   IonInput,
-  IonNote,
+  IonToggle,
+  IonModal,
+  IonCha
 } from "@ionic/react";
-import { arrowBackOutline, linkSharp, mail, documentTextOutline } from "ionicons/icons";
+import {
+  arrowBackOutline,
+  linkSharp,
+  mail,
+  documentTextOutline,
+} from "ionicons/icons";
+import { useState } from "react";
+
+
 
 function Settings() {
+const [passcode, setPasscode] = useState(0);
+// const togglePasscodeCheck = () =>{
+  
+//   setPasscodeIsChecked(!passcodeIsChecked);
+//   setIsOpen(false);
+//   console.log(passcodeIsChecked);
+// }
+const changePasscode = (e) =>{
+  console.log(e.target.value)
+  setPasscode(e.target.value);
+}
+const [isOpen, setIsOpen] = useState(false);
+
   return (
+    
+    
     <IonPage>
-      <IonHeader >
+      <IonHeader>
         <IonToolbar>
           <IonGrid>
             <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
@@ -33,7 +58,7 @@ function Settings() {
                 </IonButton>
               </IonCol>
               <IonCol size="8">
-                <IonTitle>Settings</IonTitle>
+                <IonTitle size="small">Settings</IonTitle>
               </IonCol>
               <IonCol size="2"></IonCol>
             </IonRow>
@@ -42,50 +67,74 @@ function Settings() {
       </IonHeader>
       <IonContent class="ion-padding">
         <IonList>
-          <IonItem class = "ionlabel padding">
-          <IonLabel >Sound</IonLabel>
-          <IonSelect placeholder="Make a Selection">
-          <IonSelectOption value="">No Sound</IonSelectOption>
-          <IonSelectOption value="nes">Ascending</IonSelectOption>
-          <IonSelectOption value="n64">Chime</IonSelectOption>
-          <IonSelectOption value="ps">Marimba</IonSelectOption>
-          <IonSelectOption value="genesis">Merry</IonSelectOption>
-          <IonSelectOption value="saturn">Tri-tone</IonSelectOption>
-          <IonSelectOption value="snes">Xylophone</IonSelectOption>
-        </IonSelect>
-        </IonItem>
-        <IonItem class = "ionlabel padding">
-          <IonLabel  slot="start">Snooze Duration: </IonLabel>
-          <IonInput placeholder="Enter minutes" type="number"></IonInput><IonLabel slot="end">min</IonLabel>
-          <IonNote slot="error">Invalid integer </IonNote>
-        </IonItem>
-        
-        <IonItem class = "ionlabel padding">
-          <IonLabel>Gap Between Drops:</IonLabel>
-          <IonInput placeholder=" Enter minutes" type="number"></IonInput><IonLabel slot="end">min</IonLabel>
-          <IonNote slot="error">Invalid integer</IonNote>
-        </IonItem>
+          <IonItem class="ionlabel padding">
+            <IonLabel>Sound</IonLabel>
+            <IonSelect placeholder="Make a Selection">
+              <IonSelectOption value="">No Sound</IonSelectOption>
+              <IonSelectOption value="nes">Ascending</IonSelectOption>
+              <IonSelectOption value="n64">Chime</IonSelectOption>
+              <IonSelectOption value="ps">Marimba</IonSelectOption>
+              <IonSelectOption value="genesis">Merry</IonSelectOption>
+              <IonSelectOption value="saturn">Tri-tone</IonSelectOption>
+              <IonSelectOption value="snes">Xylophone</IonSelectOption>
+            </IonSelect>
+          </IonItem>
+          <IonItem class="ionlabel padding">
+            <IonLabel slot="start">Snooze Duration: </IonLabel>
+            <IonInput placeholder="Enter minutes" type="number"></IonInput>
+            <IonLabel slot="end">min</IonLabel>
+          </IonItem>
+
+          <IonItem class="ionlabel padding">
+            <IonLabel>Gap Between Drops:</IonLabel>
+            <IonInput placeholder=" Enter minutes" type="number"></IonInput>
+            <IonLabel slot="end">min</IonLabel>
+          </IonItem>
         </IonList>
+
+        <div style={{ height: "5vh" }}></div>
+        <IonItem>
+            <IonLabel>Passcode</IonLabel>
+            <IonToggle slot="end"   onClick={() => setIsOpen(true) }></IonToggle>
+            <IonModal isOpen={isOpen}>
+            <IonHeader>
+            <IonToolbar>
+              <IonTitle>Enter New Passcode</IonTitle>
+                <IonButton slot="end" onClick={() => setIsOpen(false)}>Close</IonButton>
+            </IonToolbar>
+          </IonHeader>
+          <div style={{ height: "30vh" }}></div>
+          <IonContent className="ion-text-center ion-justify-content-center ion-align-items-center">
+          <IonInput placeholder="***" type="number"  onIonChange={changePasscode}></IonInput>
+            <IonButton routerLink="/home" color="medium" onClick={() => setIsOpen(false)}>
+                    Submit
+            </IonButton>
+          </IonContent>
+        </IonModal>
+            
+          </IonItem>
         
-       <div style={{height: "5vh"}}></div>
+        <div style={{ height: "5vh" }}></div>
         <IonList>
-        <IonItem href="Https://www.eyedropalarm.com/how-to-put-in-eyedrops.html">
-        <IonLabel>How To Put In EyeDrops </IonLabel><IonIcon icon={linkSharp}></IonIcon>
-      </IonItem>
-      <IonItem href="https://www.eyedropalarm.com/#help">
-        <IonLabel>Help </IonLabel><IonIcon icon={linkSharp}></IonIcon>
-      </IonItem>
-        
-      <IonItem routerLink="/legal">
-        <IonLabel>Legal </IonLabel><IonIcon icon={documentTextOutline}></IonIcon>
-      </IonItem>
-      <IonItem href="https://www.eyedropalarm.com/#help">
-        <IonLabel>Contact Support</IonLabel><IonIcon icon={mail}></IonIcon>
-      </IonItem>
+          <IonItem href="Https://www.eyedropalarm.com/how-to-put-in-eyedrops.html">
+            <IonLabel>How To Put In EyeDrops </IonLabel>
+            <IonIcon icon={linkSharp}></IonIcon>
+          </IonItem>
+          <IonItem href="https://www.eyedropalarm.com/#help">
+            <IonLabel>Help </IonLabel>
+            <IonIcon icon={linkSharp}></IonIcon>
+          </IonItem>
+
+          <IonItem routerLink="/legal">
+            <IonLabel>Legal </IonLabel>
+            <IonIcon icon={documentTextOutline}></IonIcon>
+          </IonItem>
+          <IonItem href="https://www.eyedropalarm.com/#help">
+            <IonLabel>Contact Support</IonLabel>
+            <IonIcon icon={mail}></IonIcon>
+          </IonItem>
         </IonList>
-        
-        </IonContent>
-      
+      </IonContent>
     </IonPage>
   );
 }

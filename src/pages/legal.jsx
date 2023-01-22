@@ -8,16 +8,10 @@ import {
     IonTitle,
     IonToolbar,
     IonButton,
-    IonItem,
-    IonLabel,
-    IonList,
     IonContent,
-    IonSelectOption,
-    IonSelect,
-    IonInput,
-    IonNote,
+    
   } from "@ionic/react";
-  import { arrowBackOutline, linkSharp, mail, documentTextOutline } from "ionicons/icons";
+  import { arrowBackOutline } from "ionicons/icons";
   
   function legal() {
     return (
@@ -27,7 +21,7 @@ import {
             <IonGrid>
               <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
                 <IonCol size="2">
-                  <IonButton routerLink="/home" color="medium">
+                  <IonButton routerLink="/settings" color="medium">
                     <IonIcon icon={arrowBackOutline} />
                   </IonButton>
                 </IonCol>
