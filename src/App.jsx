@@ -26,22 +26,29 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 import legal from "./pages/legal";
+import PassScreen from "./pages/PassScreen";
 
 setupIonicReact();
+//const {passcodeIsChecked} = Settings()
+function App(){
 
-function App() {
   return (
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
+          <Route
+            exact
+            path="/"
+            render={ () => {
+            return 1+2===2 ? <PassScreen /> : <Home />;
+          }}
+          />
           <Route exact path="/home" component={Home} />
           <Route path="/addeyedrop" component={AddEyedrop}></Route>
           <Route exact path="/addeyedrop/:id" component={AddEyedropForm}></Route>
           <Route path="/settings" component={Settings} />
           <Route path="/legal" component={legal}/>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
+          
         </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>

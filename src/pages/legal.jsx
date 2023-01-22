@@ -21,7 +21,7 @@ import {
             <IonGrid>
               <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
                 <IonCol size="2">
-                  <IonButton routerLink="/home" color="medium">
+                  <IonButton routerLink="/settings" color="medium">
                     <IonIcon icon={arrowBackOutline} />
                   </IonButton>
                 </IonCol>
