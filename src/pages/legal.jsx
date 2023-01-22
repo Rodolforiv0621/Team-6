@@ -15,6 +15,7 @@ import {
   
   function legal() {
     return (
+      // Page to show legal documentation
         <IonPage>
         <IonHeader >
           <IonToolbar>

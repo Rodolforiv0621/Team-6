@@ -119,6 +119,7 @@ function AddEyedropForm({ match }) {
             <IonIcon icon={eyedropOutline} slot="start"></IonIcon>
           </IonItem>
         )}
+        {/* Set which eye medication will be added to */}
         <IonItem>
           <IonLabel>
             <h1>Which Eye?</h1>
@@ -158,6 +159,7 @@ function AddEyedropForm({ match }) {
             </IonToolbar>
           </IonLabel>
         </IonItem>
+        {/* Set date/time for alarms */}
         <IonItem>
           <IonLabel>
             <h1>Start Date</h1>
@@ -178,7 +180,7 @@ function AddEyedropForm({ match }) {
             ></IonInput>
           </IonLabel>
         </IonItem>
-
+        {/* Set how often to take medication */}
         <IonItem>
           <IonLabel>
             <h1>How often?</h1>
@@ -189,7 +191,7 @@ function AddEyedropForm({ match }) {
             ></IonInput>
           </IonLabel>
         </IonItem>
-
+          {/* Set alarm */}
         <IonItem>
           <IonLabel>
             <h1>Alarm</h1>

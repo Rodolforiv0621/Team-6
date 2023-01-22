@@ -16,14 +16,14 @@ import {
   
 
   function PassScreen() {
-
+      //page used to for user to enter their passocode
     return (
       <IonPage>
         <IonHeader>
         <IonToolbar>
           <IonGrid>
             <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
-              
+              {/* Title */}
               <IonCol size="10">
                 <IonTitle size="small">Enter Passcode</IonTitle>
               </IonCol>
@@ -34,6 +34,7 @@ import {
         </IonHeader>
         <div style={{ height: "30vh" }}></div>
         <IonContent class="ion-text-center ion-justify-content-center ion-align-items-center">
+          {/* User input passcode */}
         <IonInput placeholder="****" type="number"></IonInput>
             <IonButton routerLink="/home" color="medium">
                     Submit

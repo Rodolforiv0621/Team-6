@@ -31,30 +31,31 @@ import { useState } from "react";
 
 
 function Settings() {
+  //is used for setting passcode
 const [passcode, setPasscode] = useState(0);
+//is used for activating passcode screen
 const [isChecked, setIsChecked] = useState(false);
+ //is used for setting passcode
 const togglePasscodeCheck = () =>{
   
   setIsChecked(!isChecked);
   localStorage.setItem("isAuthed", JSON.stringify(isChecked));
-  console.log("coming from toggle: " +JSON.parse(localStorage.getItem("isAuthed")));
-  //return passcodeIsChecked;
 }
+ //is used for setting passcode
 const changePasscode = (e) =>{
-  //console.log(e.target.value)
-  
-  //localStorage.setItem("passcode", JSON.stringify(passcode));
   if(isChecked){
     setPasscode(e.target.value);
     localStorage.setItem("passcode", JSON.stringify(passcode));
-    //console.log(JSON.parse(localStorage.getItem("passcode")));
+    
   }else{
     setPasscode(-1);
     localStorage.setItem("passcode", JSON.stringify(passcode));
-    //console.log(JSON.parse(localStorage.getItem("passcode")));
+    
   }
 }
+
 const [isOpen, setIsOpen] = useState(false);
+//Open modal for passcode input
 function toggle() {
   let temp = isOpen
   setIsOpen(!temp)
@@ -62,7 +63,7 @@ function toggle() {
 
   return (
     
-    
+    // settings page components
     <IonPage>
       <IonHeader>
         <IonToolbar>
@@ -115,6 +116,7 @@ function toggle() {
               toggle()
               togglePasscodeCheck();
             } }></IonToggle>
+            {/* Open modal for passcode input */}
             <IonModal isOpen={isOpen}>
             <IonHeader>
             <IonToolbar>
@@ -148,7 +150,7 @@ function toggle() {
             <IonLabel>Legal </IonLabel>
             <IonIcon icon={documentTextOutline}></IonIcon>
           </IonItem>
-          <IonItem href="https://www.eyedropalarm.com/#help">
+          <IonItem >
             <IonLabel>Contact Support</IonLabel>
             <IonIcon icon={mail}></IonIcon>
           </IonItem>
