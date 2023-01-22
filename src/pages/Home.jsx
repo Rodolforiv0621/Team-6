@@ -45,13 +45,13 @@ function Home() {
                 <IonSegment value="default">
                   <IonSegmentButton
                     onClick={() => setSch(true)}
-                    value="default"
+                    value={`${sch ? "default" : "segment"}`}
                   >
                     <IonLabel>Schedule</IonLabel>
                   </IonSegmentButton>
                   <IonSegmentButton
                     onClick={() => setSch(false)}
-                    value="segment"
+                    value={`${!sch ? "default" : "segment"}`}
                   >
                     <IonLabel>My Drops</IonLabel>
                   </IonSegmentButton>
