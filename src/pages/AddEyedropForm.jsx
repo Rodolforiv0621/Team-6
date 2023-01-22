@@ -42,8 +42,10 @@ function AddEyedropForm({ match }) {
   const [numberOfDays, setNumberOfDays] = useState("");
   const [timesPerDay, setTimesPerDay] = useState("");
   const [alarm, setAlarm] = useState("");
+  const [isLocalStorageChange, setIsLocalStorageChange] = useState(false);
 
   function handleSubmit() {
+    setIsLocalStorageChange(true);
     console.log(medicationEye);
     console.log(startDate);
     console.log(numberOfDays);
@@ -58,7 +60,9 @@ function AddEyedropForm({ match }) {
       reps: timesPerDay,
       alarm: alarm,
     };
-    window.localStorage.setItem("dropData", JSON.stringify(tempData));
+    localStorage.setItem("dropData", JSON.stringify(tempData));
+    setIsLocalStorageChange(false);
+    console.log(localStorage.getItem("dropData"));
   }
 
   useEffect(() => {
@@ -68,9 +72,6 @@ function AddEyedropForm({ match }) {
       setSavedMedicine(true);
     }
   });
-  // useEffect(() => {
-  //   console.log(startDate);
-  // }, [startDate]);
 
   return (
     <IonPage>
@@ -100,7 +101,7 @@ function AddEyedropForm({ match }) {
           <IonItem>
             <IonLabel>
               <h1>{match.params.id}</h1>
-              <p>Paragraph</p>
+              <p>Saved Medicine</p>
             </IonLabel>
             <IonIcon icon={eyedropOutline} slot="start" size="large"></IonIcon>
           </IonItem>

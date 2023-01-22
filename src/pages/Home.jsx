@@ -22,14 +22,32 @@ import {
   IonTitle,
   IonItemGroup,
   IonItemDivider,
+  IonFab,
+  IonFabButton,
 } from "@ionic/react";
 import { Virtuoso } from "react-virtuoso";
 import "./Home.css";
-import { add, cog } from "ionicons/icons";
-import { useState } from "react";
+import { add, cog, refresh, eyedropOutline } from "ionicons/icons";
+import { useEffect, useState } from "react";
 
 function Home() {
   const [sch, setSch] = useState(true);
+  const [dropDataList, setDropDataList] = useState([]);
+  const [isRefresh, setIsRefresh] = useState(false);
+
+  // useEffect(() => {
+  //   localStorage.setItem("dropData", null);
+  // });
+  useEffect(() => {
+    // console.log(localStorage.getItem("dropData"));
+    if (localStorage.getItem("dropData") !== null) {
+      let tempArray = [...dropDataList];
+      tempArray.push(JSON.parse(localStorage.getItem("dropData")));
+      setDropDataList(tempArray);
+      console.log(dropDataList);
+    }
+    setIsRefresh(false);
+  }, [isRefresh]);
   return (
     <IonPage>
       <IonHeader>
@@ -67,6 +85,9 @@ function Home() {
         </IonToolbar>
       </IonHeader>
 
+      <IonButton expand="block" onClick={() => setIsRefresh(true)}>
+        <IonIcon icon={refresh} />
+      </IonButton>
       {sch ? (
         <IonContent class="ion-padding">
           <Virtuoso
@@ -104,33 +125,30 @@ function Home() {
         </IonContent>
       ) : (
         <IonContent class="ion-padding">
-          <Virtuoso
-            style={{ height: "100%" }}
-            totalCount={1}
-            itemContent={() => {
-              return (
-                <div style={{ height: "60px" }}>
-                  <IonItem>
-                    <IonAvatar slot="start">
-                      <img src="https://d3pq5rjvq8yvv1.cloudfront.net/catalog/product/cache/1/image/265x265/9df78eab33525d08d6e5fb8d27136e95/e/y/eye10.jpg" />
-                    </IonAvatar>
-                    <IonLabel>
-                      <h2>[Your Eyedrop]</h2>
-                      <p>[For which eye]</p>
-                      <p>[How many times per day]</p>
-                    </IonLabel>
-                    <IonItem>
-                      <p>
-                        Starts:[This time]
-                        <br></br>
-                        Ends:[This time]
-                      </p>
-                    </IonItem>
-                  </IonItem>
-                </div>
-              );
-            }}
-          />
+          {dropDataList.length > 0 ? (
+            dropDataList.map((item) => (
+              <IonList lines="full">
+                <IonItem>
+                  <IonLabel>
+                    <h1>{item.medName}</h1>
+                  </IonLabel>
+                  <IonLabel>
+                    <p>
+                      <b>{item.eye}</b> eyes
+                    </p>
+                    <p>Starts: {item.start}</p>
+                    <p>
+                      <b>{item.reps}</b> per day
+                    </p>
+                    <p>Ends: {item.start}</p>
+                  </IonLabel>
+                  <IonIcon icon={eyedropOutline} slot="start"></IonIcon>
+                </IonItem>
+              </IonList>
+            ))
+          ) : (
+            <div></div>
+          )}
         </IonContent>
       )}
     </IonPage>
