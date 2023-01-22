@@ -36,6 +36,7 @@ function AddEyedropForm({ match }) {
     "December",
   ];
   const [savedMedicine, setSavedMedicine] = useState(true);
+  const [manualName, setManualName] = useState("");
   const [medicationEye, setMedicationEye] = useState("both");
   const [startDate, setStartDate] = useState("");
   const [numberOfDays, setNumberOfDays] = useState("");
@@ -48,7 +49,16 @@ function AddEyedropForm({ match }) {
     console.log(numberOfDays);
     console.log(timesPerDay);
     console.log(alarm);
-    window.
+    let medName = savedMedicine ? match.params.id : manualName;
+    let tempData = {
+      medName: medName,
+      eye: medicationEye,
+      start: startDate,
+      days: numberOfDays,
+      reps: timesPerDay,
+      alarm: alarm,
+    };
+    window.localStorage.setItem("dropData", JSON.stringify(tempData));
   }
 
   useEffect(() => {
@@ -97,7 +107,10 @@ function AddEyedropForm({ match }) {
         ) : (
           <IonItem>
             <IonLabel>
-              <ion-input placeholder="Eyedrop Name"></ion-input>
+              <IonInput
+                placeholder="Eyedrop Name"
+                onIonInput={(e) => setManualName(e.target.value)}
+              ></IonInput>
             </IonLabel>
             <IonIcon icon={eyedropOutline} slot="start"></IonIcon>
           </IonItem>
