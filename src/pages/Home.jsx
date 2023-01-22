@@ -26,11 +26,8 @@ import {
 import { Virtuoso } from 'react-virtuoso';
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
-<<<<<<< HEAD
 import { useState } from "react";
-=======
 import { useHistory } from "react-router-dom";
->>>>>>> 49041d8a81d23f999d38518fb1824237020ba84c
 
 function Home() {
   const [sch, setSch] = useState(true)
