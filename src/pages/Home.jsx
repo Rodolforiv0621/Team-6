@@ -28,7 +28,6 @@ import "./Home.css";
 import { add, cog } from "ionicons/icons";
 import { useState } from "react";
 
-
 function Home() {
   const [sch, setSch] = useState(true)
   return (
