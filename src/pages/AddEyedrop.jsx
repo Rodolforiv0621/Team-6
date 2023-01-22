@@ -31,7 +31,7 @@ function AddEyedrop({ eyedrop }) {
                 </IonButton>
               </IonCol>
               <IonCol size="8">
-                <IonTitle>Add Eyedrop</IonTitle>
+                <IonTitle size="small">Add Eyedrop</IonTitle>
               </IonCol>
               <IonCol size="2">
                 <IonButton routerLink="/addeyedrop/manual" color="medium">

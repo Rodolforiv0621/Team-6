@@ -26,7 +26,11 @@ import {
 import { Virtuoso } from 'react-virtuoso';
 import "./Home.css";
 import { add, cog } from "ionicons/icons";
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import { useHistory } from "react-router-dom";
+>>>>>>> 49041d8a81d23f999d38518fb1824237020ba84c
 
 function Home() {
   const [sch, setSch] = useState(true)
@@ -35,7 +39,7 @@ function Home() {
       <IonHeader>
         <IonToolbar>
           <IonGrid>
-            <IonRow class="ion-text-center ion-justify-content-center ion-align-items-center">
+            <IonRow class="ion-text-start ion-justify-content-center ion-align-items-center">
               <IonCol size="2">
                 <IonButton routerLink="/settings" color="medium">
                   <IonIcon icon={cog} />
@@ -53,7 +57,7 @@ function Home() {
               </IonCol>
               <IonCol size="2">
                 <IonButton routerLink="/AddEyedrop" color="medium">
-                  <IonIcon icon={add} />
+                  <IonIcon icon={add} />{" "}
                 </IonButton>
               </IonCol>
             </IonRow>
