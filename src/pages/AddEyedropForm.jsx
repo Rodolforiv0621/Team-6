@@ -64,9 +64,9 @@ function AddEyedropForm({ match }) {
               </IonCol>
               <IonCol size="8">
                 {savedMedicine ? (
-                  <IonTitle>Add Eyedrop</IonTitle>
+                  <IonTitle size="small">Add Eyedrop</IonTitle>
                 ) : (
-                  <IonTitle>Manual Entry</IonTitle>
+                  <IonTitle size="small">Manual Entry</IonTitle>
                 )}
               </IonCol>
               <IonCol size="2"></IonCol>
