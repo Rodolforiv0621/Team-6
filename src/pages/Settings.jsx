@@ -16,6 +16,9 @@ import {
   IonSelectOption,
   IonSelect,
   IonInput,
+  IonToggle,
+  IonModal,
+  IonCha
 } from "@ionic/react";
 import {
   arrowBackOutline,
@@ -23,9 +26,27 @@ import {
   mail,
   documentTextOutline,
 } from "ionicons/icons";
+import { useState } from "react";
+
+
 
 function Settings() {
+const [passcode, setPasscode] = useState(0);
+// const togglePasscodeCheck = () =>{
+  
+//   setPasscodeIsChecked(!passcodeIsChecked);
+//   setIsOpen(false);
+//   console.log(passcodeIsChecked);
+// }
+const changePasscode = (e) =>{
+  console.log(e.target.value)
+  setPasscode(e.target.value);
+}
+const [isOpen, setIsOpen] = useState(false);
+
   return (
+    
+    
     <IonPage>
       <IonHeader>
         <IonToolbar>
@@ -71,6 +92,28 @@ function Settings() {
           </IonItem>
         </IonList>
 
+        <div style={{ height: "5vh" }}></div>
+        <IonItem>
+            <IonLabel>Passcode</IonLabel>
+            <IonToggle slot="end"   onClick={() => setIsOpen(true) }></IonToggle>
+            <IonModal isOpen={isOpen}>
+            <IonHeader>
+            <IonToolbar>
+              <IonTitle>Enter New Passcode</IonTitle>
+                <IonButton slot="end" onClick={() => setIsOpen(false)}>Close</IonButton>
+            </IonToolbar>
+          </IonHeader>
+          <div style={{ height: "30vh" }}></div>
+          <IonContent className="ion-text-center ion-justify-content-center ion-align-items-center">
+          <IonInput placeholder="***" type="number"  onIonChange={changePasscode}></IonInput>
+            <IonButton routerLink="/home" color="medium" onClick={() => setIsOpen(false)}>
+                    Submit
+            </IonButton>
+          </IonContent>
+        </IonModal>
+            
+          </IonItem>
+        
         <div style={{ height: "5vh" }}></div>
         <IonList>
           <IonItem href="Https://www.eyedropalarm.com/how-to-put-in-eyedrops.html">

@@ -26,9 +26,10 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 import legal from "./pages/legal";
 import { useState } from "react";
+import PassScreen from "./pages/PassScreen";
 
 setupIonicReact();
-
+//const {passcodeIsChecked} = Settings()
 function App() {
   const [myDropData, setMyDropData] = useState([]);
 
@@ -42,6 +43,13 @@ function App() {
     <IonApp>
       <IonReactRouter>
         <IonRouterOutlet>
+          {/* <Route
+            exact
+            path="/"
+            render={() => {
+              return 1 + 2 === 2 ? <PassScreen /> : <Home />;
+            }}
+          /> */}
           <Route exact path="/home" component={Home} />
           <Route path="/addeyedrop" component={AddEyedrop}></Route>
           <Route
