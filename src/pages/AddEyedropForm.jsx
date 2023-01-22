@@ -14,6 +14,7 @@ import {
   IonSegment,
   IonSegmentButton,
   IonDatetime,
+  IonInput,
 } from "@ionic/react";
 import { eyedropOutline, arrowBackOutline } from "ionicons/icons";
 import { useEffect, useState } from "react";
@@ -36,9 +37,19 @@ function AddEyedropForm({ match }) {
   ];
   const [savedMedicine, setSavedMedicine] = useState(true);
   const [medicationEye, setMedicationEye] = useState("both");
-  const [startDate, setStartDate] = useState(
-    `${month[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`
-  );
+  const [startDate, setStartDate] = useState("");
+  const [numberOfDays, setNumberOfDays] = useState("");
+  const [timesPerDay, setTimesPerDay] = useState("");
+  const [alarm, setAlarm] = useState("");
+
+  function handleSubmit() {
+    console.log(medicationEye);
+    console.log(startDate);
+    console.log(numberOfDays);
+    console.log(timesPerDay);
+    console.log(alarm);
+    window.
+  }
 
   useEffect(() => {
     if (match.params.id === "manual") {
@@ -109,7 +120,7 @@ function AddEyedropForm({ match }) {
                       </IonSegmentButton>
                       <IonSegmentButton
                         value={`${
-                          medicationEye === "both" ? "default" : "both"
+                          medicationEye === "Both" ? "default" : "Both"
                         }`}
                         onClick={() => setMedicationEye("Both")}
                       >
@@ -133,32 +144,48 @@ function AddEyedropForm({ match }) {
         <IonItem>
           <IonLabel>
             <h1>Start Date</h1>
-            <IonDatetime presentation="date" preferWheel={true}></IonDatetime>
+            <IonDatetime
+              presentation="date"
+              preferWheel={true}
+              onIonChange={(e) => setStartDate(e.detail.value)}
+            ></IonDatetime>
           </IonLabel>
         </IonItem>
         <IonItem>
           <IonLabel>
             <h1>Number of days</h1>
-            <ion-input placeholder="Number of days" type="number"></ion-input>
+            <IonInput
+              placeholder="Number of days"
+              type="number"
+              onIonInput={(e) => setNumberOfDays(e.target.value)}
+            ></IonInput>
           </IonLabel>
         </IonItem>
 
         <IonItem>
           <IonLabel>
             <h1>How often?</h1>
-            <ion-input placeholder="Times per day" type="number"></ion-input>
+            <IonInput
+              placeholder="Times per day"
+              type="number"
+              onIonInput={(e) => setTimesPerDay(e.target.value)}
+            ></IonInput>
           </IonLabel>
         </IonItem>
 
         <IonItem>
           <IonLabel>
             <h1>Alarm</h1>
-            <p>
-              <IonDatetime presentation="time" preferWheel={true}></IonDatetime>
-            </p>
+            <IonDatetime
+              presentation="time"
+              preferWheel={true}
+              onIonChange={(e) => setAlarm(e.detail.value)}
+            ></IonDatetime>
           </IonLabel>
         </IonItem>
-        <IonButton expand="block">Submit</IonButton>
+        <IonButton expand="block" onClick={() => handleSubmit()}>
+          Submit
+        </IonButton>
       </IonContent>
     </IonPage>
   );
