@@ -64,6 +64,7 @@ function App() {
           ></Route>
           <Route path="/settings" component={Settings} />
           <Route path="/legal" component={legal} />
+          {/* Routes to home screen or passcode screen depending on if passcode is set */}
           <Route
             exact
             path="/"
